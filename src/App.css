@@ -1,0 +1,108 @@
+/* src/App.css */
+body {
+  background-color: #f4f4f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.place-form {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.form-group h3 {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #FACC15; /* Your App's Theme Color */
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #e0b600;
+}
+
+.submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.message {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  text-align: center;
+}
+.message.success { background-color: #d4edda; color: #155724; }
+.message.error { background-color: #f8d7da; color: #721c24; }
+
+/* Add to existing CSS */
+.nav-bar { display: flex; gap: 10px; justify-content: center; margin-bottom: 20px; }
+.nav-btn { padding: 10px 20px; background: #ddd; border: none; border-radius: 20px; cursor: pointer; font-weight: bold; }
+.nav-btn.active { background: #FACC15; color: black; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+.card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.card img { width: 100%; height: 150px; object-fit: cover; }
+.card-content { padding: 15px; }
+.card h3 { margin: 0 0 5px 0; font-size: 18px; }
+.actions { display: flex; gap: 10px; margin-top: 15px; }
+.btn-edit { flex: 1; padding: 8px; background: #3b82f6; color: white; border: none; borderRadius: 5px; cursor: pointer; }
+.btn-delete { flex: 1; padding: 8px; background: #ef4444; color: white; border: none; borderRadius: 5px; cursor: pointer; }
