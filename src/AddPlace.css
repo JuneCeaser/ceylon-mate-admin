@@ -1,0 +1,13 @@
+.container { max-width: 800px; margin: 0 auto; padding: 20px; font-family: sans-serif; }
+.form-group { margin-bottom: 15px; }
+label { display: block; margin-bottom: 5px; font-weight: bold; }
+input, textarea { width: 100%; padding: 8px; margin-bottom: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;}
+textarea { height: 100px; }
+.row { display: flex; gap: 10px; }
+
+/* Facts */
+.facts-section { background: #f9f9f9; padding: 15px; margin-bottom: 15px; border-radius: 8px; }
+.fact-row { display: flex; gap: 10px; margin-bottom: 10px; }
+.delete-btn { background: #ff4444; color: white; border: none; cursor: pointer; padding: 0 10px; }
+.add-btn { background: #007bff; color: white; border: none; padding: 5px 10px; cursor: pointer; }
+.save-btn { background: #28a745; color: white; border: none; padding: 15px; width: 100%; font-size: 18px; cursor: pointer; margin-top: 20px;}
