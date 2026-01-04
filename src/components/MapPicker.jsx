@@ -5,7 +5,6 @@ import 'leaflet/dist/leaflet.css';
 import 'leaflet-geosearch/dist/geosearch.css';
 import L from 'leaflet';
 
-// Fix for missing default marker icons in React-Leaflet
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
@@ -16,7 +15,6 @@ let DefaultIcon = L.icon({
 });
 L.Marker.prototype.options.icon = DefaultIcon;
 
-// 1. Search Bar Component
 const SearchField = () => {
   const map = useMap();
   useEffect(() => {
@@ -24,7 +22,7 @@ const SearchField = () => {
     const searchControl = new GeoSearchControl({
       provider: provider,
       style: 'bar',
-      showMarker: false, // We handle the marker ourselves
+      showMarker: false,
       autoClose: true,
       retainZoomLevel: false,
     });
@@ -34,29 +32,27 @@ const SearchField = () => {
   return null;
 };
 
-// 2. Click Handler Component
 const LocationMarker = ({ setPosition, position }) => {
   useMapEvents({
     click(e) {
-      setPosition(e.latlng); // Update parent state on click
+      setPosition(e.latlng);
     },
   });
-
   return position ? <Marker position={position} /> : null;
 };
 
 export default function MapPicker({ onLocationSelect, initialLat, initialLng }) {
-  // Default to Sri Lanka center if no initial pos
-  const defaultCenter = [7.8731, 80.7718]; 
+  const defaultCenter = [7.8731, 80.7718]; // Sri Lanka
   const [position, setPosition] = useState(null);
 
+  // Initialize marker if editing
   useEffect(() => {
     if (initialLat && initialLng) {
       setPosition({ lat: initialLat, lng: initialLng });
     }
   }, [initialLat, initialLng]);
 
-  // When position changes, notify the parent form
+  // Pass change to parent
   useEffect(() => {
     if (position) {
       onLocationSelect(position.lat, position.lng);
@@ -64,7 +60,7 @@ export default function MapPicker({ onLocationSelect, initialLat, initialLng }) 
   }, [position]);
 
   return (
-    <div style={{ height: '400px', width: '100%', marginBottom: '20px', border: '2px solid #ddd' }}>
+    <div style={{ height: '350px', width: '100%', border: '2px solid #ddd', borderRadius: '8px', overflow: 'hidden' }}>
       <MapContainer 
         center={initialLat ? [initialLat, initialLng] : defaultCenter} 
         zoom={initialLat ? 15 : 8} 
@@ -72,14 +68,11 @@ export default function MapPicker({ onLocationSelect, initialLat, initialLng }) 
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; OpenStreetMap contributors'
+          attribution='&copy; OpenStreetMap'
         />
         <SearchField />
         <LocationMarker setPosition={setPosition} position={position} />
       </MapContainer>
-      <div style={{marginTop: '5px', fontSize: '12px', color: '#666'}}>
-        Tip: Search for a place or click anywhere on the map to pin it.
-      </div>
     </div>
   );
 }

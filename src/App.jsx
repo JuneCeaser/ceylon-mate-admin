@@ -1,17 +1,28 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// ⚠️ CHANGE: Import directly from the same folder (./)
-import AddPlace from './AddPlace'; 
-import './App.css';
+// 👇 FIX: Use "./" (dot slash) and ensure the folder name matches exactly (usually lowercase "pages")
+import Dashboard from './pages/Dashboard';
+import AddPlace from './pages/AddPlace';
+import EditPlace from './pages/EditPlace';
+
+import './App.css'; 
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        {/* This makes the AddPlace form the home page */}
-        <Route path="/" element={<AddPlace />} />
-      </Routes>
+      <div className="app-container">
+        <nav className="navbar">
+          <h1>Ceylon Mate Admin</h1>
+        </nav>
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/add" element={<AddPlace />} />
+            <Route path="/edit/:id" element={<EditPlace />} />
+          </Routes>
+        </div>
+      </div>
     </BrowserRouter>
   );
 }
