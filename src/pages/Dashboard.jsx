@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 // ⚠️ CHECK PORT
-const API_URL = 'http://localhost:5000/api/places';
+const API_URL = 'http://localhost:5000/api/places';                                                       
 
 export default function Dashboard() {
   const [places, setPlaces] = useState([]);
