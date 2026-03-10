@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import MapPicker from "../components/MapPicker";
 
-const API_URL = 'http://localhost:5000/api/places';
+const API_URL = 'https://ceylonmate-backend.vercel.app/api/places';
 
 export default function EditPlace() {
   const { id } = useParams();
@@ -37,6 +37,7 @@ export default function EditPlace() {
         });
         setImages(p.images && p.images.length > 0 ? p.images : ['']);
         setFacts(p.facts && p.facts.length > 0 ? p.facts : [{ label: '', value: '' }]);
+      // eslint-disable-next-line no-unused-vars
       } catch (err) {
         alert("Error loading place data");
         navigate('/');

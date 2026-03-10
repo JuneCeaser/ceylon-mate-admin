@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import MapPicker from "../components/MapPicker";
 
-const API_URL = 'http://localhost:5000/api/places/add'; 
+const API_URL = 'https://ceylonmate-backend.vercel.app/api/places/add'; 
 
 export default function AddPlace() {
   const navigate = useNavigate();
